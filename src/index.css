@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #faf9ff;
+    color: #1e1b4b;
+    overflow-x: hidden;
+  }
+  * { box-sizing: border-box; }
+}
+
+/* ── Reusable utilities ────────────────────────────── */
+@layer components {
+  /* Section layout helpers */
+  .section-wrap  { @apply py-20 px-4 sm:px-6 lg:px-8; }
+  .section-inner { @apply max-w-7xl mx-auto; }
+  .section-label { @apply text-xs font-bold tracking-[3px] uppercase text-ips-purple mb-3; }
+  .section-title { @apply font-display text-3xl md:text-4xl lg:text-5xl font-black text-ips-text leading-tight mb-4; }
+  .section-desc  { @apply text-gray-500 text-base leading-relaxed max-w-2xl mb-10; }
+
+  /* Button variants */
+  .btn-purple {
+    @apply inline-flex items-center gap-2 bg-ips-purple text-white font-bold
+           px-7 py-3.5 rounded-xl text-sm tracking-wide
+           hover:bg-ips-purple-dk hover:-translate-y-0.5
+           active:scale-[0.98] transition-all duration-200
+           shadow-lg shadow-purple-200 cursor-pointer;
+  }
+  .btn-green {
+    @apply inline-flex items-center gap-2 bg-ips-green text-white font-bold
+           px-7 py-3.5 rounded-xl text-sm tracking-wide
+           hover:bg-emerald-700 hover:-translate-y-0.5
+           active:scale-[0.98] transition-all duration-200
+           shadow-lg shadow-emerald-200 cursor-pointer;
+  }
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 bg-transparent text-white font-semibold
+           border-2 border-white/50 px-7 py-3.5 rounded-xl text-sm
+           hover:bg-white/10 hover:border-white transition-all duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-ips-purple font-semibold text-sm
+           px-4 py-2 rounded-lg hover:bg-ips-purple-lt transition-all duration-200;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white border border-gray-100 rounded-2xl p-6
+           shadow-sm hover:shadow-xl hover:-translate-y-1
+           transition-all duration-300 cursor-default;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-ips-text
+           text-sm font-medium placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-ips-purple/30 focus:border-ips-purple
+           transition-all duration-150;
+  }
+  .form-label {
+    @apply block text-xs font-bold tracking-wide text-gray-600 mb-1.5 uppercase;
+  }
+}
+
+/* ── Decorative helpers ────────────────────────────── */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── WhatsApp pulse ring ───────────────────────────── */
+@keyframes whatsappPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.whatsapp-btn { animation: whatsappPulse 2s infinite; }
+
+/* ── Scroll-to-top button ──────────────────────────── */
+.scroll-top-btn {
+  @apply fixed bottom-[104px] right-6 z-50 w-11 h-11 rounded-full
+         bg-ips-purple text-white flex items-center justify-center
+         shadow-lg shadow-purple-300 hover:bg-ips-purple-dk
+         hover:-translate-y-0.5 transition-all duration-200 cursor-pointer;
+}
