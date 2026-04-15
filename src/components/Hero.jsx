@@ -6,13 +6,22 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[94vh] flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #1e0a3c 0%, #3b0764 35%, #4c1d95 65%, #6d28d9 100%)' }}
+      className="relative min-h-[94vh] flex items-center overflow-hidden bg-black"
     >
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/promo video.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/60" />
+
       {/* Background textures */}
-      <div className="dot-pattern absolute inset-0 pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-violet-500/10 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-pink-500/10 blur-3xl pointer-events-none" />
+      <div className="dot-pattern absolute inset-0 pointer-events-none opacity-20" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
