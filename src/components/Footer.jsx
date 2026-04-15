@@ -4,13 +4,13 @@ import { MapPin, Phone, Facebook, Youtube, Instagram, Mail } from 'lucide-react'
 
 const BRANCHES = [
   { name: 'Sayeedabad', phone: '9848963139' },
-  { name: 'Tolichowki',  phone: '9848864865' },
-  { name: 'Jahanuma',    phone: '9133995666' },
-  { name: 'Karimnagar',  phone: '8686122181' },
+  { name: 'Tolichowki', phone: '9848864865' },
+  { name: 'Jahanuma', phone: '9133995666' },
+  { name: 'Karimnagar', phone: '8686122181' },
 ]
 
-const ACADEMICS = ['SSC / CBSE Curriculum','Alim Course','Hifz-e-Qur\'an','Public Speaking','Coding & Robotics','5 Languages Program']
-const QUICK     = ['About IPS','Achievements','Gallery','Admissions','Contact Us']
+const ACADEMICS = ['SSC / CBSE Curriculum', 'Alim Course', 'Hifz-e-Qur\'an', 'Public Speaking', 'Coding & Robotics', '5 Languages Program']
+const QUICK = ['About IPS', 'Achievements', 'Gallery', 'Admissions', 'Contact Us']
 
 export default function Footer() {
   return (
@@ -22,27 +22,35 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="font-display font-black text-4xl mb-1">
-              <span className="text-emerald-400">I</span>
-              <span className="text-blue-400">P</span>
-              <span className="text-pink-400">S</span>
-            </div>
-            <div className="text-violet-200 font-bold text-sm mb-3">International Group of Schools</div>
+            <Link to="/" className="flex items-center group flex-shrink-0 ">
+              <img
+                src="/images/logo2.png"
+                alt="IPS International"
+                className="h-15 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
+            <div className="text-violet-200 font-bold text-sm mb-3"></div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-5">
               The School for Global Leaders of Tomorrow — leading students to success in this world and the Hereafter.
             </p>
             <div className="flex gap-2.5">
               {[
-                { icon: <Facebook size={15}/>, label:'Facebook'  },
-                { icon: <Youtube  size={15}/>, label:'YouTube'   },
-                { icon: <Instagram size={15}/>, label:'Instagram' },
-              ].map(({ icon, label }) => (
-                <button key={label} aria-label={label}
+                { icon: <Facebook size={15} />, label: 'Facebook', href: 'https://www.facebook.com/ipsinternational1' },
+                { icon: <Youtube size={15} />, label: 'YouTube', href: 'https://www.youtube.com/c/IPSInternationalSchool' },
+                { icon: <Instagram size={15} />, label: 'Instagram', href: 'https://www.instagram.com/ips_international4?fbclid=IwY2xjawRMGM9leHRuA2FlbQIxMABicmlkETFHTkZOYXFiN1d0UTNPMmJvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtua8-IVwdmSPUAvP5Y5sjkWHZD1SG82LMyZIt-AN1ioHs5PDn5raaomC_GI_aem_XYHPrlg91mrN5Ff4pdZkbQ' },
+              ].map(({ icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-9 h-9 bg-white/6 border border-white/10 rounded-lg
                              flex items-center justify-center text-violet-400
-                             hover:bg-white/15 hover:text-white transition-all duration-150">
+                             hover:bg-white/15 hover:text-white transition-all duration-150"
+                >
                   {icon}
-                </button>
+                </a>
               ))}
               <a href="https://wa.me/919848963139" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-[#25D366]/20 border border-[#25D366]/30 rounded-lg
@@ -66,7 +74,7 @@ export default function Footer() {
                     <span className="text-white font-semibold text-sm">{name}</span>
                   </div>
                   <a href={`tel:+91${phone}`}
-                     className="flex items-center gap-1.5 text-gray-500 text-xs hover:text-violet-300 transition-colors">
+                    className="flex items-center gap-1.5 text-gray-500 text-xs hover:text-violet-300 transition-colors">
                     <Phone size={11} /> {phone}
                   </a>
                 </div>

@@ -32,10 +32,10 @@ const EMAILJS_PUBLIC_KEY  = 'o4RtMU_6mfwTGu1Ev'
 
 // Branch → email routing table
 const BRANCH_EMAILS = {
-  Sayeedabad: 'qayyumdeveloper786@gmail.com',
-  Tolichowki:  'tolichowki@ipsinternational.co.in',
-  Jahanuma:    'jahanuma@ipsinternational.co.in',
-  Karimnagar:  'karimnagar@ipsinternational.co.in',
+  Sayeedabad: 'admin.akb@ipsinternational.co.in',
+  Tolichowki:  'admin.tol@ipsinternational.co.in',
+  Jahanuma:    'admin.jah@ipsinternational.co.in',
+  Karimnagar:  'admin.karimnagar@ipsinternational.co.in',
 }
 
 const BRANCHES  = Object.keys(BRANCH_EMAILS)
@@ -157,7 +157,7 @@ export default function Contact() {
         >
           <div className="dot-pattern absolute inset-0 pointer-events-none" />
           <div className="relative z-10">
-            <div className="section-label text-violet-400">Admissions 2025–26</div>
+            <div className="section-label text-violet-400">Admissions 2026–27</div>
             <h1 className="font-display font-black text-4xl md:text-5xl text-white mb-3">
               Contact &amp; Enrollment
             </h1>

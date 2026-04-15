@@ -54,20 +54,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-[68px]">
 
           {/* ── Brand ── */}
-          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-ips-purple to-ips-purple-md
-                            flex items-center justify-center text-white font-black text-xs tracking-wider
-                            group-hover:shadow-lg group-hover:shadow-purple-200 transition-shadow duration-200">
-              IPS
-            </div>
-            <div className="leading-tight">
-              <span className="block font-display font-bold text-ips-purple-dk text-[15px] leading-none">
-                IPS International
-              </span>
-              <span className="block text-[10px] font-semibold text-gray-400 tracking-[2px] uppercase">
-                Group of Schools
-              </span>
-            </div>
+          <Link to="/" className="flex items-center group flex-shrink-0">
+            <img
+              src="/images/logo2.png"
+              alt="IPS International"
+              className="h-15 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* ── Desktop nav ── */}

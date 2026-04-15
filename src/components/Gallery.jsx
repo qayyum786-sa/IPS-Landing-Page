@@ -160,7 +160,7 @@ export default function Gallery() {
         </motion.div>
 
         {/* Media upload hint */}
-        <motion.div 
+        {/* <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1 }}
@@ -173,7 +173,7 @@ export default function Gallery() {
           <p className="text-center sm:text-left">
             Replace emoji placeholders in <code className="bg-gray-100 px-2 py-0.5 rounded text-ips-purple font-bold">Gallery.jsx</code> with real images from your assets folder.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )
