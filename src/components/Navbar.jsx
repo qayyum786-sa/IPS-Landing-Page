@@ -58,7 +58,7 @@ export default function Navbar() {
             <img
               src="/images/logo2.png"
               alt="IPS International"
-              className="h-15 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
