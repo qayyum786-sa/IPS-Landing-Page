@@ -22,7 +22,7 @@ const BRANCHES = [
     name: 'Jahanuma',
     phone: '9133995666',
     address: 'Jahanuma, Hyderabad, Telangana',
-    mapUrl: 'https://maps.google.com/?q=Jahanuma+Hyderabad',
+    mapUrl: 'https://maps.app.goo.gl/zHTraUMFEg6N5NfHA?g_st=aw',
     color: 'from-blue-600 to-blue-800',
     glow: 'shadow-blue-200',
   },

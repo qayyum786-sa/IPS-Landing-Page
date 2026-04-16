@@ -6,7 +6,7 @@ const FEATURES = [
     icon: <Languages size={26} />,
     bg: 'bg-violet-100', color: 'text-ips-purple',
     title: 'Students Learn 5 Languages',
-    desc: 'Arabic, Urdu, Telugu, Hindi, and English — multilingual mastery from day one.',
+    desc: 'English, Hindi, Urdu, Arabic, Telugu— multilingual mastery from day one.',
   },
   {
     icon: <Cpu size={26} />,
