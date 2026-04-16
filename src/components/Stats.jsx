@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 const STATS = [
   { end: 100, suffix: '%', label: 'Result in Board Exams', desc: '8 consecutive years of perfect pass rates — an unbroken record of academic excellence', color: 'text-emerald-300' },
   { end: 80,  suffix: '%', label: 'Students Secured Distinction', desc: '4 in 5 students achieve distinction — our methods consistently produce top performers', color: 'text-violet-300' },
-  { end: 60,  suffix: '+', label: 'Hifz-e-Qur\'an Completions', desc: 'Students who memorised the Qur\'an in full alongside their complete academic studies', color: 'text-amber-300' },
+  { end: 61,  suffix: '+', label: 'Hifz-e-Qur\'an Completions', desc: 'Students who memorised the Qur\'an in full alongside their complete academic studies', color: 'text-amber-300' },
 ]
 
 /* Simple count-up hook */

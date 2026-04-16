@@ -23,7 +23,7 @@ const FEATURES = [
   {
     icon: <BookHeart size={26} />,
     bg: 'bg-emerald-100', color: 'text-emerald-700',
-    title: 'Islamic + Academic Education',
+    title: 'Academic + Islamic Education',
     desc: 'SSC/CBSE integrated with Alim Course and Hifz-e-Qur\'an — unique in all of India.',
   },
 ]

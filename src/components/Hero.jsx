@@ -33,7 +33,7 @@ export default function Hero() {
                             text-amber-200 text-xs font-bold tracking-wide uppercase
                             px-4 py-2 rounded-full mb-6">
               <Trophy size={13} />
-              World Record Holders · Multilingual Public Speaking
+              World Record Holder · Multilingual Public Speaking
             </div>
 
             {/* Main heading */}
@@ -121,7 +121,7 @@ export default function Hero() {
               {[
                 { n: '100%', label: 'Board Results' },
                 { n: '80%',  label: 'Distinction' },
-                { n: '60+',  label: 'Hifz Students' },
+                { n: '61+',  label: 'Hifz Students' },
               ].map(s => (
                 <div key={s.n}
                   className="bg-white/10 border border-white/15 rounded-xl p-3 text-center backdrop-blur-sm">
