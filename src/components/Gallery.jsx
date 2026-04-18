@@ -1,54 +1,200 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ImagePlus, ArrowUpRight } from 'lucide-react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowUpRight, Search, LayoutGrid, Play } from 'lucide-react'
 
-/*
-  Drop your images/videos into src/assets/ and replace the
-  placeholder objects below with:
-    { src: '/src/assets/your-image.jpg', label: 'Caption' }
-*/
+const CATEGORIES = ['All', 'Campus', 'Events', 'Labs', 'Activities'];
+
 const ITEMS = [
   { 
-    emoji: '📖', 
+    id: 1,
+    category: 'Labs',
     label: 'Smart Classrooms',      
-    sub: 'Interactive learning environments with digital boards and tech-first teaching.',   
-    bg: 'from-violet-600 to-indigo-700',   
-    span: 'md:col-span-2 md:row-span-2', 
-    tall: true  
+    sub: 'Interactive digital learning.',   
+    image: '/images/smartclassrom.JPG',
+    span: 'md:col-span-1', 
   },
   { 
-    emoji: '💻', 
+    id: 2,
+    category: 'Labs',
     label: 'Computer Lab',           
-    sub: 'Modern tech infrastructure for digital literacy.',          
-    bg: 'from-emerald-600 to-teal-700', 
-    span: '',              
-    tall: false 
+    sub: 'Modern tech infrastructure.',          
+    image: '/images/modern.JPG',
+    span: 'md:col-span-1',              
   },
   { 
-    emoji: '🎤', 
+    id: 3,
+    category: 'Events',
     label: 'Public Speaking',   
-    sub: 'World-record oratory programs and confidence building.',       
-    bg: 'from-blue-700 to-blue-900',       
-    span: '',              
-    tall: false 
+    sub: 'World-record oratory.',       
+    image: '/images/public.JPG',
+    span: 'md:col-span-1',              
   },
   { 
-    emoji: '🤖', 
-    label: 'Robotics & AI Lab',      
-    sub: 'Hands-on STEM education and future-ready skills.',             
-    bg: 'from-amber-500 to-orange-700',     
-    span: '',              
-    tall: false 
+    id: 4,
+    category: 'Labs',
+    label: 'Chemistry Lab',      
+    sub: 'Hands-on STEM skills.',             
+    image: '/images/robotic.JPG',
+    span: 'md:col-span-1',              
   },
   { 
-    emoji: '🕌', 
+    id: 5,
+    category: 'Campus',
     label: 'Islamic Centre', 
-    sub: 'Faith integrated with modern academic excellence.',      
-    bg: 'from-teal-600 to-emerald-800',       
-    span: 'md:col-span-2', 
-    tall: false 
+    sub: 'Faith & Excellence.',      
+    image: '/images/ismalic.JPG',
+    span: 'md:col-span-1', 
   },
- 
+  { 
+    id: 6,
+    category: 'Activities',
+    label: 'Sports & Life', 
+    sub: 'Athletic growth.',      
+    image: '/images/activity3.JPG',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 7,
+    category: 'Campus',
+    label: 'Campus View', 
+    sub: 'Green environment.',      
+    image: '/images/image2.jpg',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 8,
+    category: 'Events',
+    label: 'Annual Meet', 
+    sub: 'Celebrating success.',      
+    image: '/images/image3.jpg',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 9,
+    category: 'Activities',
+    label: 'Creative Arts', 
+    sub: 'Expressing talent.',      
+    image: '/images/activity1.JPG',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 10,
+    category: 'Events',
+    label: 'Academic Excellence',   
+    sub: 'World-record oratory.',       
+    image: '/images/image4.jpg',
+    span: 'md:col-span-1',              
+  },
+  { 
+    id: 11,
+    category: 'Events',
+    label: 'Academic Excellence',   
+    sub: 'World-record oratory.',       
+    image: '/images/image3.jpg',
+    span: 'md:col-span-1',              
+  },  
+  { 
+    id: 12,
+    category: 'Activities',
+    label: 'Creative Arts', 
+    sub: 'Expressing talent.',      
+    image: '/images/activity.JPG',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 13,
+    category: 'Events',
+    label: 'Academic Excellence',   
+    sub: 'World-record oratory.',       
+    image: '/images/image9.jpg',
+    span: 'md:col-span-1',              
+  },
+  { 
+    id: 14,
+    category: 'Labs',
+    label: 'hands-on Lab',      
+    sub: 'Hands-on STEM skills.',             
+    image: '/images/lab1.JPG',
+    span: 'md:col-span-1',              
+  },
+
+  { 
+    id: 15,
+    category: 'Campus',
+    label: 'Guest Lecture', 
+    sub: 'Faith & Excellence.',      
+    image: '/images/public2.JPG',
+    span: 'md:col-span-1',              
+  },
+    { 
+    id: 16,
+    category: 'Campus',
+    label: 'Guest Lecture', 
+    sub: 'Faith & Excellence.',      
+    image: '/images/public3.JPG',
+    span: 'md:col-span-1',              
+  },
+  { 
+    id: 17,
+    category: 'Activities',
+    label: 'public Speaking', 
+    sub: 'Expressing talent.',      
+    image: '/images/activity7.JPG',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 18,
+    category: 'Activities',
+    label: 'Tour & Excursions', 
+    sub: 'Expressing talent.',      
+    image: '/images/activity5.JPG',
+    span: 'md:col-span-1', 
+  },
+      { 
+    id: 19,
+    category: 'Campus',
+    label: 'Guest Lecture', 
+    sub: 'Faith & Excellence.',      
+    image: '/images/campus7.JPG',
+    span: 'md:col-span-1',              
+  },
+    { 
+    id: 20,
+    category: 'Activities',
+    label: 'Awareness Programs', 
+    sub: 'Expressing talent.',      
+    image: '/images/awareness2.JPG',
+    span: 'md:col-span-1', 
+  },
+    { 
+    id: 21,
+    category: 'Activities',
+    label: 'Hand writing Competition', 
+    sub: 'Expressing talent.',      
+    image: '/images/hand2.jpeg',
+    span: 'md:col-span-1', 
+  },
+    { 
+    id: 22,
+    category: 'Activities',
+    label: 'Awareness Programs for Environment', 
+    sub: 'Expressing talent.',      
+    image: '/images/awareness.JPG',
+    span: 'md:col-span-1', 
+  },
+  { 
+    id: 23,
+    category: 'Activities',
+    label: 'Orientation Program', 
+    sub: 'Expressing talent.',      
+    image: '/images/oriented.JPG',
+    span: 'md:col-span-1', 
+  },
+];
+
+const VIDEOS = [
+  { id: 1, src: '/videos/video1.mp4', title: 'Campus Highlights', category: 'Events' },
+  { id: 2, src: '/videos/video2.mp4', title: 'Student Life', category: 'Activities' },
 ]
 
 const containerVariants = {
@@ -56,126 +202,224 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     }
   }
 }
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { scale: 0.9, opacity: 0 },
   visible: {
-    y: 0,
+    scale: 1,
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.23, 1, 0.32, 1]
     }
+  },
+  exit: {
+    scale: 0.95,
+    opacity: 0,
+    transition: { duration: 0.2 }
   }
 }
 
 function GalleryCard({ item }) {
   return (
     <motion.div 
+      layout
       variants={itemVariants}
-      className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 ${item.span}`}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      whileHover={{ y: -8 }}
+      className={`group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100 ${item.span}`}
     >
-      <div
-        className={`bg-gradient-to-br ${item.bg} flex flex-col items-center justify-center
-                    text-center p-8 transition-transform duration-700 group-hover:scale-110
-                    ${item.tall ? 'h-full min-h-[320px] md:min-h-[400px]' : 'h-64 md:h-72'}`}
-      >
-        <div className="relative">
-          <div className="text-6xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-12 drop-shadow-xl">
-            {item.emoji}
-          </div>
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-50 group-hover:scale-100">
-            <ArrowUpRight size={16} className="text-white" />
-          </div>
-        </div>
+      <div className="relative aspect-[4/5] overflow-hidden">
+        {/* Main Image */}
+        <motion.img
+          src={item.image}
+          alt={item.label}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        />
         
-        <div className="text-white font-display font-bold text-xl md:text-2xl tracking-tight">
-          {item.label}
-        </div>
-        <div className="text-white/80 text-sm mt-2 max-w-[200px] leading-relaxed font-medium">
-          {item.sub}
-        </div>
-      </div>
-
-      {/* Glossy overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent
-                      opacity-0 group-hover:opacity-100 transition-all duration-500
-                      flex flex-col justify-end p-6 pointer-events-none">
-        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-          <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-2">
-            Campus Life
+        {/* Minimal Overlay Tag */}
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-800 uppercase tracking-widest rounded-lg shadow-sm">
+            {item.category}
           </span>
-          <h3 className="text-white font-bold text-lg leading-tight">{item.label}</h3>
-          <p className="text-white/90 text-xs mt-1 font-medium leading-relaxed italic">
-            "{item.sub}"
-          </p>
+        </div>
+
+        {/* Floating Gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Subtle Bottom Content (Visible on Hover) */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+          <h3 className="text-white font-bold text-lg leading-tight mb-1">{item.label}</h3>
+          <p className="text-white/80 text-xs font-medium">{item.sub}</p>
+        </div>
+
+        {/* View Icon Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="w-12 h-12 bg-ips-purple/90 rounded-full flex items-center justify-center text-white scale-75 group-hover:scale-100 transition-transform duration-500 shadow-lg">
+            <Search size={20} />
+          </div>
         </div>
       </div>
-
-      {/* Glass border effect */}
-      <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/20 rounded-3xl transition-colors duration-500 pointer-events-none" />
+      
+      {/* Static Footer (Visible always for clean design) */}
+      <div className="p-4 bg-white flex items-center justify-between border-t border-slate-50">
+        <div>
+          <h4 className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-ips-purple transition-colors">{item.label}</h4>
+          <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{item.category}</p>
+        </div>
+        <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-ips-purple-lt transition-colors">
+          <ArrowUpRight size={14} className="text-slate-400 group-hover:text-ips-purple transition-colors" />
+        </div>
+      </div>
     </motion.div>
   )
 }
 
 export default function Gallery() {
-  return (
-    <section id="gallery" className="section-wrap bg-ips-bg relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-ips-purple/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-ips-green/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+  const [activeCategory, setActiveCategory] = useState('All');
 
-      <div className="section-inner relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <div className="section-label">Campus Life</div>
-            <h2 className="section-title !mb-0 text-balance">
-              Where <span className="text-ips-purple">Innovation</span> Meets Excellence
-            </h2>
-            <p className="text-gray-500 text-lg mt-4 leading-relaxed">
-              Explore our world-class facilities designed to nurture the next generation of global leaders and innovators.
-            </p>
-          </div>
+  const filteredItems = activeCategory === 'All' 
+    ? ITEMS 
+    : ITEMS.filter(item => item.category === activeCategory);
+
+  return (
+    <section id="gallery" className="section-wrap bg-[#fcfcfd] relative overflow-hidden py-24">
+      {/* Clean soft background blobs */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-ips-purple/5 rounded-full blur-[100px] opacity-60 pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-ips-green/5 rounded-full blur-[100px] opacity-60 pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-ips-purple font-bold text-xs tracking-[0.3em] uppercase mb-4 block"
+          >
+            Gallery & Showcase
+          </motion.span>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+            Campus <span className="text-ips-purple italic font-serif">Highlights</span>
+          </h2>
+          <div className="w-20 h-1 bg-ips-purple mx-auto rounded-full mb-8" />
           
-          <div className="hidden md:block">
-            <div className="flex items-center gap-3 text-ips-purple font-bold text-sm tracking-wide bg-ips-purple-lt px-6 py-3 rounded-2xl">
-              <span className="w-2 h-2 bg-ips-purple rounded-full animate-pulse" />
-              6+ Specialized Labs
-            </div>
+          {/* Minimalist Filter */}
+          <div className="flex flex-wrap justify-center items-center gap-2 mb-12">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
+                  activeCategory === cat 
+                    ? 'bg-slate-900 text-white shadow-lg' 
+                    : 'bg-white text-slate-500 hover:bg-slate-50 border border-slate-100'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
 
         <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
-          {ITEMS.map(item => <GalleryCard key={item.label} item={item} />)}
+          <AnimatePresence mode='popLayout'>
+            {filteredItems.map(item => (
+              <GalleryCard key={item.id} item={item} />
+            ))}
+          </AnimatePresence>
         </motion.div>
 
-        {/* Media upload hint */}
-        {/* <motion.div 
+        {/* Videos Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">Featured <span className="text-ips-purple italic">Stories</span></h3>
+            <p className="text-slate-500 text-sm max-w-md mx-auto">Watch our students in action and explore the vibrant life at IPS International.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {VIDEOS.map((video) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative aspect-video rounded-[2rem] overflow-hidden bg-slate-100 shadow-xl group border border-slate-200"
+              >
+                <video
+                  src={video.src}
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  onPlay={(e) => {
+                    const parent = e.target.parentElement
+                    // hide overlay of current video
+                    const overlay = parent.querySelector('.overlay')
+                    if (overlay) overlay.style.opacity = '0'
+                    
+                    // pause others + show their overlay
+                    const videos = document.querySelectorAll("video")
+                    videos.forEach((vid) => {
+                      if (vid !== e.target) {
+                        vid.pause()
+                        const otherOverlay = vid.parentElement.querySelector('.overlay')
+                        if (otherOverlay) otherOverlay.style.opacity = '1'
+                      }
+                    })
+                  }}
+                  onPause={(e) => {
+                    const overlay = e.target.parentElement.querySelector('.overlay')
+                    if (overlay) overlay.style.opacity = '1'
+                  }}
+                  onEnded={(e) => {
+                    const overlay = e.target.parentElement.querySelector('.overlay')
+                    if (overlay) overlay.style.opacity = '1'
+                  }}
+                />
+                
+                {/* Professional Video Overlay */}
+                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] pointer-events-none transition-opacity duration-500">
+                  <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white scale-90 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl">
+                      <Play size={28} className="text-ips-purple fill-ips-purple ml-1" />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-8 left-8 text-white">
+                    <span className="px-3 py-1 bg-ips-purple/80 backdrop-blur-sm rounded-lg text-[10px] font-bold uppercase tracking-widest mb-2 inline-block">
+                      {video.category}
+                    </span>
+                    <h4 className="text-xl font-bold">{video.title}</h4>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Minimal Footer CTA */}
+        <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-12 flex flex-col sm:flex-row items-center gap-3 text-gray-400 text-xs font-medium justify-center p-6 border border-dashed border-gray-200 rounded-3xl"
+          className="mt-16 text-center"
         >
-          <div className="flex items-center gap-2">
-            <ImagePlus size={16} className="text-ips-purple/50" />
-            <span>Ready for your media?</span>
-          </div>
-          <p className="text-center sm:text-left">
-            Replace emoji placeholders in <code className="bg-gray-100 px-2 py-0.5 rounded text-ips-purple font-bold">Gallery.jsx</code> with real images from your assets folder.
-          </p>
-        </motion.div> */}
+          {/* <button className="inline-flex items-center gap-2 px-8 py-3 bg-white border border-slate-200 rounded-full text-sm font-bold text-slate-700 hover:bg-slate-50 transition-all shadow-sm">
+            View All Media <LayoutGrid size={16} className="text-ips-purple" />
+          </button> */}
+        </motion.div>
       </div>
+
+
+      
     </section>
   )
 }
+
 

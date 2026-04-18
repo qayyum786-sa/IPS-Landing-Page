@@ -116,7 +116,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} IPS International Group of Schools. All rights reserved. Hyderabad, Telangana.
+            © {new Date().getFullYear()} Luminate Web Solutions. All Rights Reserved. Hyderabad, Telangana.
           </p>
           <p className="text-gray-700 text-xs italic">
             Lead to Success in this World &amp; the Hereafter

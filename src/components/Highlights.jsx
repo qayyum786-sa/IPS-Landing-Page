@@ -29,7 +29,7 @@ const FEATURES = [
 ]
 
 const CHECKLIST = [
-  '100% Board Exam Results for 7 years',
+  '100% Board Exam Results for 8 years',
   '5 languages taught to every student',
   'Two World Records in Public Speaking',
   'Coding, Robotics & AI curriculum',

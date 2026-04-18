@@ -102,7 +102,7 @@ export default function Achievements() {
         </div>
 
         {/* World Records banner */}
-        <div className="mt-10 rounded-3xl overflow-hidden"
+        {/* <div className="mt-10 rounded-3xl overflow-hidden"
           style={{ background: 'linear-gradient(135deg,#1e0a3c,#4c1d95)' }}>
           <div className="dot-pattern p-10 text-center">
             <div className="text-4xl mb-3">🏆 🏆</div>
@@ -113,7 +113,7 @@ export default function Achievements() {
               Awarded in Multilingual Public Speaking — Hyderabad, India
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -15,7 +15,7 @@ export default function Home() {
       <Achievements />
       <Stats />
       <Highlights />
-      <MediaSection />
+      
       <Gallery />
       <Branches />
       <Footer />
