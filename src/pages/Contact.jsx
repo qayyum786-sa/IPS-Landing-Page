@@ -8,7 +8,7 @@
  * 1. Sign up at https://www.emailjs.com (free tier = 200 emails/month)
  * 2. Create a Service (Gmail / Outlook / SMTP) → copy SERVICE_ID
  * 3. Create an Email Template with these variables:
- *      {{from_name}}, {{phone}}, {{from_email}}, {{student_name}},
+ *      {{from_name}}, {{phone}}, {{from_email}},
  *      {{student_class}}, {{branch}}, {{branch_email}}, {{reply_to}}
  * 4. Copy your TEMPLATE_ID and PUBLIC_KEY
  * 5. Fill in the three constants below (or use import.meta.env.VITE_* vars)
@@ -20,7 +20,7 @@ import emailjs from '@emailjs/browser'
 import { Link } from 'react-router-dom'
 import {
   User, Phone, Mail, BookOpen,
-  GraduationCap, MapPin, Send, CheckCircle2,
+  MapPin, Send, CheckCircle2,
   AlertCircle, ArrowLeft, Loader2,
 } from 'lucide-react'
 import Footer from '../components/Footer.jsx'
@@ -48,7 +48,6 @@ function validate(form) {
   if (!/^\d{10}$/.test(form.phone)) errs.phone         = 'Enter a valid 10-digit phone number'
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.from_email))
                                     errs.from_email    = 'Enter a valid email address'
-  if (!form.student_name.trim())    errs.student_name  = 'Student name is required'
   if (!form.student_class)          errs.student_class = 'Please select a class'
   if (!form.branch)                 errs.branch        = 'Please select a branch'
   return errs
@@ -78,7 +77,7 @@ export default function Contact() {
 
   const [form, setForm] = useState({
     from_name: '', phone: '', from_email: '',
-    student_name: '', student_class: '', branch: '',
+    student_class: '', branch: '',
   })
   const [errors,  setErrors]  = useState({})
   const [status,  setStatus]  = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
@@ -111,7 +110,7 @@ export default function Contact() {
         EMAILJS_PUBLIC_KEY,
       )
       setStatus('success')
-      setForm({ from_name:'', phone:'', from_email:'', student_name:'', student_class:'', branch:'' })
+      setForm({ from_name:'', phone:'', from_email:'', student_class:'', branch:'' })
     } catch (err) {
       console.error('EmailJS error:', err)
       setErrMsg('Something went wrong. Please try calling us directly.')
@@ -264,15 +263,6 @@ export default function Contact() {
                         type="email" name="from_email" value={form.from_email}
                         onChange={onChange} placeholder="you@example.com"
                         className={`form-input ${errors.from_email ? 'border-red-400 focus:ring-red-200' : ''}`}
-                      />
-                    </Field>
-
-                    {/* Student Name */}
-                    <Field label="Student Name" icon={<GraduationCap size={11}/>} error={errors.student_name}>
-                      <input
-                        type="text" name="student_name" value={form.student_name}
-                        onChange={onChange} placeholder="Student's full name"
-                        className={`form-input ${errors.student_name ? 'border-red-400 focus:ring-red-200' : ''}`}
                       />
                     </Field>
 

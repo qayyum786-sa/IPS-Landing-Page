@@ -244,7 +244,7 @@ function GalleryCard({ item }) {
         />
         
         {/* Minimal Overlay Tag */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 right-4">
           <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-800 uppercase tracking-widest rounded-lg shadow-sm">
             {item.category}
           </span>
@@ -289,7 +289,7 @@ export default function Gallery() {
     : ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="section-wrap bg-[#fcfcfd] relative overflow-hidden py-24">
+    <section id="gallery" className="section-wrap bg-[#fcfcfd] relative overflow-hidden py-8">
       {/* Clean soft background blobs */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-ips-purple/5 rounded-full blur-[100px] opacity-60 pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-ips-green/5 rounded-full blur-[100px] opacity-60 pointer-events-none" />
@@ -410,14 +410,8 @@ export default function Gallery() {
           whileInView={{ opacity: 1 }}
           className="mt-16 text-center"
         >
-          {/* <button className="inline-flex items-center gap-2 px-8 py-3 bg-white border border-slate-200 rounded-full text-sm font-bold text-slate-700 hover:bg-slate-50 transition-all shadow-sm">
-            View All Media <LayoutGrid size={16} className="text-ips-purple" />
-          </button> */}
         </motion.div>
       </div>
-
-
-      
     </section>
   )
 }
