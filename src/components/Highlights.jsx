@@ -33,7 +33,7 @@ const CHECKLIST = [
   '5 languages taught to every student',
   'Two World Records in Public Speaking',
   'Coding, Robotics & AI curriculum',
-  'Integrated Islamic + Academic program',
+  'Integrated Academic + Islamic program',
   '1st school in India with this curriculum',
 ]
 
@@ -91,7 +91,7 @@ export default function Highlights() {
             </div>
             <div className="rounded-2xl p-5 text-center"
               style={{ background: 'linear-gradient(135deg,#fef3c7,#fde68a)', border: '1px solid #fbbf24' }}>
-              <span className="font-display font-black text-amber-600 text-4xl">1st</span>
+              <span className="font-display font-black text-amber-600 text-4xl">1ˢᵗ</span>
               <span className="font-bold text-amber-800 text-sm ml-2">School in India</span>
               <p className="text-amber-700 text-xs mt-1">
                 Offering SSC/CBSE + Alim Course + Hifz-e-Qur'an + Public Speaking

@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Search, LayoutGrid, Play } from 'lucide-react'
 
-const CATEGORIES = ['All', 'Campus', 'Events', 'Labs', 'Activities'];
+const CATEGORIES = ['All', 'Guest Lectures', 'Events', 'Labs', 'Activities', 'Learning Environments'];
 
 const ITEMS = [
   { 
     id: 1,
-    category: 'Labs',
+    category: 'Learning Environments',
     label: 'Smart Classrooms',      
-    sub: 'Interactive digital learning.',   
+    sub: 'islamic environment.',   
     image: '/images/smartclassrom.JPG',
     span: 'md:col-span-1', 
   },
@@ -39,7 +39,7 @@ const ITEMS = [
   },
   { 
     id: 5,
-    category: 'Campus',
+    category: 'events',
     label: 'Islamic Centre', 
     sub: 'Faith & Excellence.',      
     image: '/images/ismalic.JPG',
@@ -53,16 +53,9 @@ const ITEMS = [
     image: '/images/activity3.JPG',
     span: 'md:col-span-1', 
   },
+ 
   { 
     id: 7,
-    category: 'Campus',
-    label: 'Campus View', 
-    sub: 'Green environment.',      
-    image: '/images/image2.jpg',
-    span: 'md:col-span-1', 
-  },
-  { 
-    id: 8,
     category: 'Events',
     label: 'Annual Meet', 
     sub: 'Celebrating success.',      
@@ -70,7 +63,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
   { 
-    id: 9,
+    id: 8,
     category: 'Activities',
     label: 'Creative Arts', 
     sub: 'Expressing talent.',      
@@ -78,7 +71,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
   { 
-    id: 10,
+    id: 9,
     category: 'Events',
     label: 'Academic Excellence',   
     sub: 'World-record oratory.',       
@@ -86,7 +79,7 @@ const ITEMS = [
     span: 'md:col-span-1',              
   },
   { 
-    id: 11,
+    id: 10,
     category: 'Events',
     label: 'Academic Excellence',   
     sub: 'World-record oratory.',       
@@ -94,7 +87,7 @@ const ITEMS = [
     span: 'md:col-span-1',              
   },  
   { 
-    id: 12,
+    id: 11,
     category: 'Activities',
     label: 'Creative Arts', 
     sub: 'Expressing talent.',      
@@ -102,7 +95,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
   { 
-    id: 13,
+    id: 12,
     category: 'Events',
     label: 'Academic Excellence',   
     sub: 'World-record oratory.',       
@@ -110,7 +103,7 @@ const ITEMS = [
     span: 'md:col-span-1',              
   },
   { 
-    id: 14,
+    id: 13,
     category: 'Labs',
     label: 'hands-on Lab',      
     sub: 'Hands-on STEM skills.',             
@@ -119,23 +112,23 @@ const ITEMS = [
   },
 
   { 
-    id: 15,
-    category: 'Campus',
+    id: 14,
+    category: 'Guest Lectures',
     label: 'Guest Lecture', 
     sub: 'Faith & Excellence.',      
     image: '/images/public2.JPG',
     span: 'md:col-span-1',              
   },
     { 
-    id: 16,
-    category: 'Campus',
+    id: 15,
+    category: 'Guest Lectures',
     label: 'Guest Lecture', 
     sub: 'Faith & Excellence.',      
     image: '/images/public3.JPG',
     span: 'md:col-span-1',              
   },
   { 
-    id: 17,
+    id: 16,
     category: 'Activities',
     label: 'public Speaking', 
     sub: 'Expressing talent.',      
@@ -143,7 +136,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
   { 
-    id: 18,
+    id: 17,
     category: 'Activities',
     label: 'Tour & Excursions', 
     sub: 'Expressing talent.',      
@@ -151,15 +144,15 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
       { 
-    id: 19,
-    category: 'Campus',
+    id: 18,
+    category: 'Guest Lectures',
     label: 'Guest Lecture', 
     sub: 'Faith & Excellence.',      
     image: '/images/campus7.JPG',
     span: 'md:col-span-1',              
   },
     { 
-    id: 20,
+    id: 19,
     category: 'Activities',
     label: 'Awareness Programs', 
     sub: 'Expressing talent.',      
@@ -167,7 +160,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
     { 
-    id: 21,
+    id: 20,
     category: 'Activities',
     label: 'Hand writing Competition', 
     sub: 'Expressing talent.',      
@@ -175,7 +168,7 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
     { 
-    id: 22,
+    id: 21,
     category: 'Activities',
     label: 'Awareness Programs for Environment', 
     sub: 'Expressing talent.',      
@@ -183,13 +176,37 @@ const ITEMS = [
     span: 'md:col-span-1', 
   },
   { 
-    id: 23,
+    id: 22,
     category: 'Activities',
     label: 'Orientation Program', 
     sub: 'Expressing talent.',      
     image: '/images/oriented.JPG',
     span: 'md:col-span-1', 
   },
+  {
+    id: 23,
+    category: 'Activities',
+    label: 'Creative Arts',
+    sub: 'Expressing talent.',
+    image: '/images/activity1.1.JPG',
+    span: 'md:col-span-1',
+  },
+  {
+    id: 24,
+    category: 'Labs',
+    label: 'hands-on Lab',
+    sub: 'Hands-on STEM skills.',
+    image: '/images/lab1.1.JPG',
+    span: 'md:col-span-1',
+  },
+  {
+    id: 25,
+    category: 'Learning Environments',
+    label: 'Smart Classrooms',
+    sub: 'islamic environment.',
+    image: '/images/boys.JPG',
+    span: 'md:col-span-1',
+  }
 ];
 
 const VIDEOS = [
